@@ -1,2 +1,6 @@
 # ignore directories and sub
 __pycache__/
+.vagrant/
+
+# vagrant
+Vagrantfile
