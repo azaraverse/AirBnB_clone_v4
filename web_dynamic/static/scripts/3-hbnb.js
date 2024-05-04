@@ -52,7 +52,8 @@ $.ajax({
       const place = data[i];
       $('.places').append('<article><div class="title_box"><h2>' + place.name + '</h2><div class="price_by_night">$' + place.price_by_night + '</div></div>' +
       '<div class="information"><div class="max_guest">' + place.max_guest + 'Guests</div>' + '<div class="number_rooms">' + place.number_rooms + '</div>' +
-      '<div class="number_bathrooms">' + place.number_bathrooms + 'Bathrooms</div>' + '<div class="description">' + place.description + 'Description</div></div></article>');
+      '<div class="number_bathrooms">' + place.number_bathrooms + 'Bathrooms</div></div><div class="user"><b>Owner:</b>' + place.user.first_name + place.user.last_name +
+      '</div><div class="description">' + place.description + '</div></article>');
     }
   }
 });
