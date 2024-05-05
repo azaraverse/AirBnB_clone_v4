@@ -48,12 +48,24 @@ $.ajax({
   data: JSON.stringify({}),
   contentType: 'application/json',
   success: function (data) {
-    for (let i = 0; i < data.length; i++) {
-      const place = data[i];
-      $('.places').append('<article><div class="title_box"><h2>' + place.name + '</h2><div class="price_by_night">$' + place.price_by_night + '</div></div>' +
-      '<div class="information"><div class="max_guest">' + place.max_guest + 'Guests</div>' + '<div class="number_rooms">' + place.number_rooms + '</div>' +
-      '<div class="number_bathrooms">' + place.number_bathrooms + 'Bathrooms</div></div><div class="user"><b>Owner:</b>' + place.user.first_name + place.user.last_name +
-      '</div><div class="description">' + place.description + '</div></article>');
-    }
+    // loop through the result of the request and create article tags
+    data.forEach(function (place) {
+      // create an article element representing a place
+      const article = $('<article></article>');
+      article.html(`
+        <div class="title_box">
+            <h2>${place.name}</h2>
+            <div class="price_by_night">$${place.price_by_night}</div>
+        </div>
+        <div>
+            <div class="max_guest">${place.max_guest} Guests</div>
+            <div class="number_rooms">${place.number_rooms}</div>
+            <div class="number_bathrooms">${place.number_bathrooms} Bathrooms</div>
+        </div>
+        <div class="description">${place.description}</div>
+        `);
+      // append the article element to the section with class 'places'
+      $('.places').append(article);
+    });
   }
 });
