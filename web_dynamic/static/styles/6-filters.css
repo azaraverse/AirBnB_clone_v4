@@ -79,22 +79,32 @@ button:hover {
 }
 
 .locations .popover {
-    margin-top: 0%;
+    margin-top: 0px;
 }
+
+.locations .popover li {
+    display: flex;
+    align-items: center;
+}
+
+.locations .popover li input {
+    margin-right: 10px;
+}
+
 .popover ul {
     list-style-type: none;
     padding-bottom: 10px;
     padding-left: 10px;
 }
 .popover ul li{
+    display: flex;
+    align-items: center;
     padding: 4px;
     padding-left: 10px;
 }
 
 .popover ul h2{
-    margin-top: 1.5%;
-    margin-bottom: 5%;
-    margin-left: 0px;
+    margin: 0;
 }
 
 .amenities:hover .popover,
