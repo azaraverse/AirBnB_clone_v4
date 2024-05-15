@@ -19,40 +19,39 @@
     </header>
     <div class="container">
       <section class="filters">
-	<div class="locations">
-	  <h3>States</h3>
-	  <h4>&nbsp;</h4>
-	  <div class="popover">
-	    <ul>
-	      {% for state in states %}
-	      <li>
-		<h2>{{ state[0].name }}:</h2>
-		<ul>
-		  {% for city in state[1] %}
-		  <li>{{ city.name }}</li>
-		  {% endfor %}
-		</ul>
-	      </li>
-	      {% endfor %}
-	    </ul>
-	  </div>
-	</div>
-	<div class="amenities">
-	  <h3>Amenities</h3>
-	  <h4>&nbsp;</h4>
-	  <div class="popover">
-	    <ul>
-	      {% for amenity in amenities %}
-	      <li>
-            <input type="checkbox" data-id="{{ amenity.id }}" data-name="{{ amenity.name }}">{{ amenity.name }}</li>
-	      {% endfor %}
-	    </ul>
-	  </div>
-	</div>
-	<button type="button">Search</button>
-      </section>
-      <div class="placesh1"><h1>Places</h1></div>
-      <section class="places">
+        <div class="locations">
+            <h3>States</h3>
+            <h4>&nbsp;</h4>
+            <div class="popover">
+                <ul>
+                    {% for state in states|sort(attribute='name') %}
+                    <li>
+                        <h2>{{ state[0].name }}:</h2>
+                        {% for city in state[1]|sort(attribute='name') %}
+                        <li>{{ city.name }}</li>
+                        {% endfor %}
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="amenities">
+            <h3>Amenities</h3>
+            <h4>&nbsp;</h4>
+            <div class="popover">
+                <ul>
+                    {% for amenity in amenities %}
+                    <li>
+                        <input type="checkbox" data-id="{{ amenity.id }}" data-name="{{ amenity.name }}">{{ amenity.name }}
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <button type="button">Search</button>
+    </section>
+    <div class="placesh1"><h1>Places</h1></div>
+    <section class="places">
 	<!-- <h1>Places</h1> -->
 	{% for place in places %}
 	<article>
@@ -61,9 +60,9 @@
 	    <div class="price_by_night">${{ place.price_by_night }}</div>
 	  </div>
 	  <div class="information">
-	    <div class="max_guest">{{ place.max_guest }} Guest{% if place.max_guest != 1 %}s{% endif %}</div>
-            <div class="number_rooms">{{ place.number_rooms }} Bedroom{% if place.number_rooms != 1 %}s{% endif %}</div>
-            <div class="number_bathrooms">{{ place.number_bathrooms }} Bathroom{% if place.number_bathrooms != 1 %}s{% endif %}</div>
+	    <div class="max_guest">{{ place.max_guest }} Guest{% if place.max_guest >= 2 %}s{% endif %}</div>
+            <div class="number_rooms">{{ place.number_rooms }} Bedroom{% if place.number_rooms >= 2 %}s{% endif %}</div>
+            <div class="number_bathrooms">{{ place.number_bathrooms }} Bathroom{% if place.number_bathrooms >= 2 %}s{% endif %}</div>
 	  </div>
 	  <div class="user">
             <b>Owner:</b> {{ place.user.first_name }} {{ place.user.last_name }}
