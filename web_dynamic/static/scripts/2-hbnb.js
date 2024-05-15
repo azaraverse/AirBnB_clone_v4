@@ -28,7 +28,7 @@ function apiStatus () {
   // initialise HOST
   const HOST = '52.91.147.223';
   // define apiUrl
-  const apiUrl = `https://${HOST}:5003/api/v1/status/`;
+  const apiUrl = `https://${HOST}:5002/api/v1/status/`;
   // get response from apiUrl using get
   $.get(apiUrl, (data, textStatus) => {
     // if status is 'OK', add class 'available' to id element (api_status)
