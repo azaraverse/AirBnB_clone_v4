@@ -24,8 +24,6 @@ $('document').ready(function () {
   $('.amenities h4').text(stringNames);
 });
 
-apiStatus();
-
 function apiStatus () {
   // initialise HOST
   const HOST = '52.91.147.223';
@@ -42,3 +40,5 @@ function apiStatus () {
     }
   });
 }
+
+apiStatus();
