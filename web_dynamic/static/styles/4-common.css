@@ -9,3 +9,25 @@ body .container {
     max-width: 1000px;
     margin: 30px auto;
 }
+
+/* make rwd for media screens (smaller displays) */
+@media (max-width: 1200px) {
+    body .container {
+        max-width: 90%;
+        margin: 20px auto;
+    }
+}
+
+@media (max-width: 768px) {
+    body .container {
+        max-width: 70%;
+        margin: 20px auto;
+    }
+}
+
+@media (max-width: 480px) {
+    body .container {
+        max-width: 60%;
+        margin: 20px auto;
+    }
+}
